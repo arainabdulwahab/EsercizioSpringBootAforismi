@@ -25,7 +25,7 @@ public class AforismaController {
 		return service.getAllAforisma();
 	}
 	
-	@GetMapping("/api/aforismi/{id}")
+	@GetMapping("/api/aforisma/{id}")
 	public Aforisma getAforismaById(@PathVariable Integer id) {
 		Aforisma aforisma = service.getAforismaById(id);
 		if(aforisma == null ) {
@@ -35,14 +35,14 @@ public class AforismaController {
 		
 	}
 	
-	@PostMapping("/api/addaforisma/")
+	@PostMapping("/api/aforisma/save")
 	public Aforisma addAforisma(@RequestBody Aforisma aforisma) {
 		service.addAforisma(aforisma);
 		return aforisma;
 	}
 	
-	@PutMapping("/api/delete/{id")
-	public Aforisma updateAforisma(Integer id, Aforisma aforisma) {
+	@PutMapping("/api/aforisma/update/{id}")
+	public Aforisma updateAforisma(Integer id, @RequestBody  Aforisma aforisma) {
 		Aforisma af = service.updateAforisma(id, aforisma);
 		if(af == null) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Aforisma non trovato");
@@ -50,7 +50,7 @@ public class AforismaController {
 		return aforisma;
 	}
 	
-	@DeleteMapping("/api/delete/{id}")
+	@DeleteMapping("/api/aforisma/delete/{id}")
 	public Aforisma deleteAforismaById(Integer id) {
 		Aforisma aforisma = service.getAforismaById(id);
 		if(aforisma == null) {

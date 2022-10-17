@@ -1,7 +1,9 @@
 package com.example.demo.service;
 
-import com.example.demo.model.Aforisma;
+import org.springframework.stereotype.Service;
 
+import com.example.demo.model.Aforisma;
+@Service
 public interface IAforismaService {
 
 	public Iterable<Aforisma> getAllAforisma();
