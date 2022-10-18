@@ -18,7 +18,7 @@ import com.example.demo.service.AforismaService;
 public class AforismaController {
 	
 	@Autowired
-	AforismaService service;
+	private AforismaService service;
 	
 	@GetMapping("/api/aforismi")
 	public Iterable<Aforisma> getAllAforisma(){
@@ -47,7 +47,7 @@ public class AforismaController {
 		if(af == null) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Aforisma non trovato");
 		}
-		return aforisma;
+		return af;
 	}
 	
 	@DeleteMapping("/api/aforisma/delete/{id}")
